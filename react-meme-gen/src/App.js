@@ -25,6 +25,12 @@ class App extends React.Component{
                 <h1> {this.state.name} </h1>
                 <img src={this.state.url} style={{width: 1200, height: 1200}}/>
                 <button onClick= {this.handleClick} name="button">Click for Meme</button>
+            
+                <form>
+                    <input type="text" placeholder="Top Text"/>
+                    <input type="text" placeholder="Bottom Text"/>
+                    <button> Submit Meme </button>
+               </form>
             </div>
         )
     }
