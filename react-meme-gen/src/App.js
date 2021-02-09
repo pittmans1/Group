@@ -22,7 +22,8 @@ class App extends React.Component{
     render(){
         return(
             <div>
-                <img src={this.state.url} style={width=1200, height=1200}/>
+                <h1> {this.state.name} </h1>
+                <img src={this.state.url} style={{width: 1200, height: 1200}}/>
                 <button onClick= {this.handleClick} name="button">Click for Meme</button>
             </div>
         )
