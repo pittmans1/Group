@@ -56,6 +56,14 @@ class MemeCreator extends React.Component {
       this.setState({
           memeList: newMeme
       })
+
+      Array.from(document.querySelectorAll("input")).forEach(
+        input => (input.value = "")
+     );
+     this.setState({
+        topLine: "",
+        bottomLine: ""
+     })
     }
     
     
@@ -69,10 +77,10 @@ class MemeCreator extends React.Component {
                     handleSubmit={this.handleSubmit}
                 />
 
-                <button onClick= {this.handleClick} name="button">Click for Meme</button>
-               
-               <img src={this.state.memeImage}/>
-               
+                <button onClick={this.handleClick}>Click for New Meme</button>
+
+                <img src={this.state.memeImage}/>
+                
             </div>
         )
     }
