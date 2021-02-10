@@ -7,7 +7,7 @@ class MemeCreator extends React.Component {
         super()
         this.state= {
             topLine: "",
-            imgUrl: "",
+            Url: "",
             bottomLine: "",
             memeList: []
         }
@@ -15,7 +15,7 @@ class MemeCreator extends React.Component {
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
-
+    
     /*Think we need a componentDidMount here with another fetch
     to load a meme image when the site is opened*/
 
@@ -26,7 +26,7 @@ class MemeCreator extends React.Component {
             console.log(data)
             this.setState ({
                 topLine: "",
-                imgUrl: data.memes,
+                Url: data.memes,
                 bottomLine:""
             })
         })
@@ -46,6 +46,14 @@ class MemeCreator extends React.Component {
       this.setState({
           memeList: newMeme
       })
+
+      Array.from(document.querySelectorAll("input")).forEach(
+        input => (input.value = "")
+     );
+     this.setState({
+        topLine: "",
+        bottomLine: ""
+     })
     }
 
     render() {
@@ -59,7 +67,7 @@ class MemeCreator extends React.Component {
                     handleSubmit={this.handleSubmit}
                 />
 
-                <button onClick= {this.handleClick} name="button">Click for Meme</button>
+                <button onClick={this.handleClick}>Click for New Meme</button>
 
                 {memes}
             </div>
