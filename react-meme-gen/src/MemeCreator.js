@@ -7,39 +7,49 @@ class MemeCreator extends React.Component {
         super()
         this.state= {
             topLine: "",
-            imgUrl: "",
+            memeImage: "",
             bottomLine: "",
+            imgs : [],
             memeList: []
         }
         this.handleClick = this.handleClick.bind(this)
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
-
-    /*Think we need a componentDidMount here with another fetch
-    to load a meme image when the site is opened*/
-
-    handleClick(){
+    componentDidMount(){
         fetch("https://api.imgflip.com/get_memes")
         .then(response => response.json())
-        .then(data => {
-            console.log(data)
-            this.setState ({
-                topLine: "",
-                imgUrl: data.memes,
-                bottomLine:""
+        .then(response => {
+            const {memes} = response.data;
+            this.setState({
+                imgs : memes
             })
+            
+            
         })
-    }
+    };
+    /*Think we need a componentDidMount here with another fetch
+    to load a meme image when the site is opened*/
+    
+    handleClick(){
 
-    handleChange(event) {
+        const randNum = Math.floor(Math.random() * this.state.imgs.length);
+        const randomImg = this.state.imgs[randNum].url;
         this.setState({
-            [event.target.name]: event.target.value
+            memeImage: randomImg
+        })
+    }
+        
+    
+
+    handleChange(e) {
+        this.setState({
+            [e.target.name]: e.target.value
         })
     }
 
-    handleSubmit(event) {
-      event.preventDefault()
+    handleSubmit(e) {
+      e.preventDefault()
       const newMeme = [...this.state.memeList]
 
       newMeme.push(this.state)
@@ -47,9 +57,9 @@ class MemeCreator extends React.Component {
           memeList: newMeme
       })
     }
-
+    
+    
     render() {
-        let memes = this.state.memeList.map(meme => <Meme info={meme}/>)
         return (
             <div>
                 <MemeForm
@@ -60,8 +70,9 @@ class MemeCreator extends React.Component {
                 />
 
                 <button onClick= {this.handleClick} name="button">Click for Meme</button>
-
-                {memes}
+               
+               <img src={this.state.memeImage}/>
+               
             </div>
         )
     }
