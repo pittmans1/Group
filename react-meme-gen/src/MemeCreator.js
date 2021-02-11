@@ -7,7 +7,7 @@ class MemeCreator extends React.Component {
         super()
         this.state= {
             topLine: "",
-            memeImage: "",
+            memeImage: "http://i.imgflip.com/1bij.jpg",
             bottomLine: "",
             imgs : [],
             memeList: []
