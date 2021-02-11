@@ -60,14 +60,24 @@ class MemeCreator extends React.Component {
      })
     }
 
+    handleEdit = () => {
+        
+    }
+
     handleDelete = itemId => {
-        const memeItems = this.state.memeList.filter(memeItem => memeItem.id !== itemId)
-        this.setState({ memeList: memeItems})
+        const items = this.state.memeList.filter(item =>
+        item.id !== itemId)
+        this.setState({ memeList: items})
     }
     
     render() {
         let memes = this.state.memeList.map(meme =>
-        <Meme key={meme.id} info={meme} onDelete={this.handleDelete}/>)
+        <Meme
+            key={meme.id}
+            info={meme}
+            onClick={this.handleEdit}
+            onDelete={this.handleDelete}
+        />)
         return (
             <div>
                 <MemeForm
