@@ -16,6 +16,7 @@ class MemeCreator extends React.Component {
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
+
     componentDidMount(){
         fetch("https://api.imgflip.com/get_memes")
         .then(response => response.json())
@@ -24,23 +25,16 @@ class MemeCreator extends React.Component {
             this.setState({
                 imgs : memes
             })
-            
-            
         })
     };
-    /*Think we need a componentDidMount here with another fetch
-    to load a meme image when the site is opened*/
     
     handleClick(){
-
         const randNum = Math.floor(Math.random() * this.state.imgs.length);
         const randomImg = this.state.imgs[randNum].url;
         this.setState({
             memeImage: randomImg
         })
     }
-        
-    
 
     handleChange(e) {
         this.setState({
@@ -66,8 +60,8 @@ class MemeCreator extends React.Component {
      })
     }
     
-    
     render() {
+        let memes = this.state.memeList.map(meme => <Meme info={meme}/>)
         return (
             <div>
                 <MemeForm
@@ -79,7 +73,14 @@ class MemeCreator extends React.Component {
 
                 <button onClick={this.handleClick}>Click for New Meme</button>
 
+                <br />
+
+                <h1>{this.state.topLine}</h1>
                 <img src={this.state.memeImage}/>
+                <h1> {this.state.bottomLine} </h1>
+                <hr />
+
+                {memes}
                 
             </div>
         )
