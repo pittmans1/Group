@@ -1,20 +1,21 @@
 import React from "react"
 
-
-
 function Meme(props) {
     return (
-        // Img not being rendered. Wrong src?
         <div>
-            <h1 className="names">Top Line {props.name}</h1>
+            <h1 className="names">{props.info.topLine}</h1>
 
             <img
                 className="imgs"
-                src={props.url}
-                style={{width: 600, height: 600}}
+                src={props.info.memeImage}
             />
 
-            <h1>Bottom Line {props.bottomLine}</h1>
+            <h1>{props.info.bottomLine}</h1>
+
+            <button>Edit Meme</button>
+            <button>Delete Meme</button>
+
+            <hr />
         </div> 
     )
 }
