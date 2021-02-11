@@ -20,7 +20,7 @@ class MemeCreator extends React.Component {
     componentDidMount(){
         fetch("https://api.imgflip.com/get_memes")
         .then(response => response.json())
-        .then(response => {
+        .then(response => { (console.log(response))
             const {memes} = response.data;
             this.setState({
                 imgs : memes
@@ -59,9 +59,15 @@ class MemeCreator extends React.Component {
         bottomLine: ""
      })
     }
+
+    handleDelete = itemId => {
+        const memeItems = this.state.memeList.filter(memeItem => memeItem.id !== itemId)
+        this.setState({ memeList: memeItems})
+    }
     
     render() {
-        let memes = this.state.memeList.map(meme => <Meme info={meme}/>)
+        let memes = this.state.memeList.map(meme =>
+        <Meme key={meme.id} info={meme} onDelete={this.handleDelete}/>)
         return (
             <div>
                 <MemeForm
