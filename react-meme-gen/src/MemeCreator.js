@@ -3,8 +3,8 @@ import Meme from "./Meme.js"
 import MemeForm from "./MemeForm.js"
 
 class MemeCreator extends React.Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state= {
             topLine: "",
             memeImage: "http://i.imgflip.com/1bij.jpg",
@@ -15,6 +15,8 @@ class MemeCreator extends React.Component {
         this.handleClick = this.handleClick.bind(this)
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleEdit = this.handleEdit.bind(this)
+        this.handleDelete = this.handleDelete.bind(this)
     }
 
     componentDidMount(){
@@ -61,22 +63,33 @@ class MemeCreator extends React.Component {
     }
 
     handleEdit = () => {
-        
+       const edit = document.createElement("input");
+        edit.type = "text"
+        edit.id = "edit"
+
     }
 
-    handleDelete = itemId => {
-        const items = this.state.memeList.filter(item =>
-        item.id !== itemId)
-        this.setState({ memeList: items})
+    handleDelete(index) {
+        const list = this.state.memeList
+       list.splice(index, 1)
+        this.setState({list})
     }
+           
+       
+       
+         
+        
+    
     
     render() {
-        let memes = this.state.memeList.map(meme =>
+        let memes = this.state.memeList.map((meme, i) =>
         <Meme
-            key={meme.id}
+            key={i}
             info={meme}
             onClick={this.handleEdit}
             onDelete={this.handleDelete}
+            value = {i}
+            id={i}
         />)
         return (
             <div>

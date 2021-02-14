@@ -12,7 +12,7 @@ function Meme(props) {
 
             <h1>{props.info.bottomLine}</h1>
 
-            <button onClick={() => props.onClick(props.key)}>Edit Meme</button>
+            <button onClick={() => props.onClick(props.key)}>Edit Meme </button>
             <button onClick={() => props.onDelete(props.id)}>Delete Meme</button>
 
             <hr />
