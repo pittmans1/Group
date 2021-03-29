@@ -17,6 +17,7 @@ mongoose.connect(
     ()=> console.log("connected to the database.")
 
     )
+    app.use('/author', require('./routes/author.js'))
     app.use('/manga', require('./routes/manga.js'))
     app.use('/comics', require('./routes/comicBook.js'))
 
