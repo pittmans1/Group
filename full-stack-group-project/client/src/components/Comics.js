@@ -25,9 +25,28 @@ export default function Comics() {
     return (
         <div>
             <h1 className="page-title">Comics!</h1>
-            {/* {comics.map(comic => 
-                key={comic.title}
-            )} */}
+
+            <h2 className="page-summary">
+                Here is our complete list of all the comics we have!
+            </h2>
+
+            <ul>
+                {
+                    comics.map(comic =>
+                        <div>
+                            <h2
+                                key={comic.title}
+                                className="comics"
+                            >
+                                {comic.imgUrl}
+                                {comic.title}
+                                {comic.description}
+                                {comic.price}
+                            </h2>
+                        </div>)
+                }
+            </ul>
+
         </div>
     )
 }

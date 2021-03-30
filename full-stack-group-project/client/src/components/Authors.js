@@ -25,9 +25,34 @@ export default function Authors() {
     return (
         <div>
             <h1 className="page-title">Authors!</h1>
-            {/* {authors.map(author => 
-                key={author.name}
-            )} */}
+
+            <h2 className="page-summary">
+                Here is our list of every author and mangaka whose books we have!
+            </h2>
+
+            <ul>
+                {
+                    authors.map(author =>
+                        <div>
+                            <h2
+                                key={author.name}
+                                className="author-names"
+                            >
+                                {author.name}
+                            </h2>
+                        </div>)
+                }
+            </ul>
         </div>
+        // <div>
+        //     <h1 className="page-title">Authors!</h1>
+        //     {authors.map(author => 
+        //         <div>
+        //             <h2 key={author.name}>
+        //                 {author.name}
+        //             </h2>
+        //         <div/>
+        //     )}
+        // </div>
     )
 }

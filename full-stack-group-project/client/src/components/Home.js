@@ -4,7 +4,10 @@ export default function Home() {
     return (
         <div>
             <h1 className="page-title">Home Page</h1>
-            <h3>Hello and welcome to the home page.</h3>
+
+            <h2 className="page-summary">
+                Welcome to the home page.
+            </h2>
         </div>
     )
 }
