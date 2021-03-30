@@ -24,6 +24,7 @@ export default function Authors() {
 
     return (
         <div>
+            <h1 className="page-title">Authors!</h1>
             {/* {authors.map(author => 
                 key={author.name}
             )} */}

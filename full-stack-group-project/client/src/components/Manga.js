@@ -17,6 +17,7 @@ export default function Manga() {
 
     return (
         <div>
+            <h1 className="page-title">Manga!</h1>
             {/* {manga.map(manga => 
                 key={manga.title}
             )} */}

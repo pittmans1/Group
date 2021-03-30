@@ -24,6 +24,7 @@ export default function Comics() {
 
     return (
         <div>
+            <h1 className="page-title">Comics!</h1>
             {/* {comics.map(comic => 
                 key={comic.title}
             )} */}

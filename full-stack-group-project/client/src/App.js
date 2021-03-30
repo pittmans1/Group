@@ -11,7 +11,7 @@ function App() {
     return (
         <div>
             <div>
-                <h1>Typical Comics</h1>
+                <h1 className="title">Comics Manga and Authors Oh My</h1>
 
                 <nav className="navbar">
                     <Link to="/">Home</Link>
