@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
 
-export default function Comics() {
-    const [ comics, setComics ] = useState([])
+export default function Authors() {
+    const [ authors, setAuthors ] = useState([])
 
     // Get all
-    function getComics() {
+    function getAuthors() {
         axios.get("/author")
-            .then(res => setComics(res.data))
+            .then(res => setAuthors(res.data))
             .catch(err => console.log(err))
     }
 
@@ -19,13 +19,13 @@ export default function Comics() {
     }
 
     useEffect(() => {
-        getComics()
+        getAuthors()
     }, [])
 
     return (
         <div>
-            {/* {comics.map(comic => 
-                key={comic.title}
+            {/* {authors.map(author => 
+                key={author.name}
             )} */}
         </div>
     )

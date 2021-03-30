@@ -5,6 +5,7 @@ import "./styles.css"
 import Home from "./components/Home"
 import Comics from "./components/Comics"
 import Manga from "./components/Manga"
+import Authors from "./components/Authors"
 
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
                     <Link to="/">Home</Link>
                     <Link to="/comics">Comcis</Link>
                     <Link to="/manga">Manga</Link>
+                    <Link to="/authors">Authors</Link>
                 </nav>
             </div>
 
@@ -30,6 +32,10 @@ function App() {
 
                 <Route path="/manga">
                     <Manga />
+                </Route>
+
+                <Route path="/authors">
+                    <Authors />
                 </Route>
             </Switch>
         </div>

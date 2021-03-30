@@ -17,9 +17,9 @@ export default function Manga() {
 
     return (
         <div>
-            {manga.map(manga => {
-                key={}
-            })}
+            {/* {manga.map(manga => 
+                key={manga.title}
+            )} */}
         </div>
     )
 }
