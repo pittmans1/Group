@@ -6,7 +6,7 @@ export default function Comics() {
 
     // Get all
     function getComics() {
-        axios.get("/author")
+        axios.get("/comics")
             .then(res => setComics(res.data))
             .catch(err => console.log(err))
     }
@@ -33,16 +33,14 @@ export default function Comics() {
             <ul>
                 {
                     comics.map(comic =>
-                        <div>
-                            <h2
-                                key={comic.title}
-                                className="comics"
-                            >
-                                {comic.imgUrl}
-                                {comic.title}
-                                {comic.description}
-                                {comic.price}
-                            </h2>
+                        <div 
+                            key={comic.title}
+                            className="comics"
+                        >
+                            <img src={comic.imgUrl}/>
+                            <h2>Title: {comic.title}</h2>
+                            <h2>Description: {comic.description}</h2>
+                            <h2>Price: {comic.price}</h2>
                         </div>)
                 }
             </ul>

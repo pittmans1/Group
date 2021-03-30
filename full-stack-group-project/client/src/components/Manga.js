@@ -26,19 +26,18 @@ export default function Manga() {
             <ul>
                 {
                     manga.map(manga =>
-                        <div>
-                            <h2
-                                key={manga.title}
-                                className="manga"
-                            >
-                                {manga.imgUrl}
-                                {manga.title}
-                                {manga.description}
-                                {manga.price}
-                            </h2>
+                        <div
+                            key={manga.title}
+                            className="manga"
+                        >
+                            <img src={manga.imgUrl}/>
+                            <h2>Title: {manga.title}</h2>
+                            <h2>Description: {manga.description}</h2>
+                            <h2>Price: {manga.price}</h2>
                         </div>)
                 }
             </ul>
+            
         </div>
     )
 }

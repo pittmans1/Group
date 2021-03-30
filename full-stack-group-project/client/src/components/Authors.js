@@ -43,16 +43,7 @@ export default function Authors() {
                         </div>)
                 }
             </ul>
+            
         </div>
-        // <div>
-        //     <h1 className="page-title">Authors!</h1>
-        //     {authors.map(author => 
-        //         <div>
-        //             <h2 key={author.name}>
-        //                 {author.name}
-        //             </h2>
-        //         <div/>
-        //     )}
-        // </div>
     )
 }

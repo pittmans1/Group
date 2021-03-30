@@ -28,3 +28,18 @@ body {
 .page-summary {
     text-align: center;
 }
+
+.comics {
+    text-align: center;
+    margin: 1.5%;
+}
+
+.manga {
+    text-align: center;
+    margin: 1.5%;
+}
+
+.author-names {
+    text-align: center;
+    margin: 1.5%;
+}
